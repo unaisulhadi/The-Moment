@@ -51,11 +51,26 @@ val TimeTextRegular = TextStyle(
     shadow = shadow
 )
 
+val WeatherStyle = TextStyle(
+    color = Color.Black,
+    fontFamily = FontFamily(Font(R.font.dseg_weather)),
+    fontSize = 18.sp,
+    shadow = shadow
+)
+
 
 val DinProStyle = TextStyle(
     color = Color.Black,
     fontFamily = FontFamily(Font(R.font.din_pro)),
     fontSize = 18.sp,
+    shadow = shadow
+)
+
+
+val EurostileTextBold = TextStyle(
+    color = Color.Black,
+    fontFamily = FontFamily(Font(R.font.eurostile_bold)),
+    fontSize = 28.sp,
     shadow = shadow
 )
 

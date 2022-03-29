@@ -37,6 +37,7 @@ fun ChooseDisplay(
                     }
                 )
             ) {
+
                 RadioButton(
                     selected = display == selectedDisplay,
                     onClick = {
