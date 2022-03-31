@@ -4,5 +4,6 @@ data class Time(
     val hours:String = "00",
     val minutes:String = "00",
     val seconds:String = "00",
-    val amPm:String = ""
+    val amPm:String = "",
+    val date:String = ""
 )
