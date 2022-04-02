@@ -35,7 +35,7 @@ fun SquareRadioButton(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     colors: RadioButtonColors = RadioButtonDefaults.colors(),
-    cornerRadius : Dp = 0.dp
+    cornerRadius: Dp = 0.dp
 ) {
     val dotRadius by animateDpAsState(
         targetValue = if (selected) RadioButtonDotSize / 2 else 0.dp,
@@ -66,12 +66,12 @@ fun SquareRadioButton(
             .padding(RadioButtonPadding)
             .requiredSize(RadioButtonSize)
     ) {
-        drawRadio(radioColor, dotRadius,cornerRadius)
+        drawRadio(radioColor, dotRadius, cornerRadius)
     }
 }
 
 
-private fun DrawScope.drawRadio(color: Color, dotRadius: Dp,cornerRadius: Dp) {
+private fun DrawScope.drawRadio(color: Color, dotRadius: Dp, cornerRadius: Dp) {
     val strokeWidth = RadioStrokeWidth.toPx()
     drawRect(
         color,
@@ -83,18 +83,18 @@ private fun DrawScope.drawRadio(color: Color, dotRadius: Dp,cornerRadius: Dp) {
         )
     )
     if (dotRadius > 0.dp) {
-            drawRoundRect(
-                color,
-                topLeft = Offset(RadioStrokeWidth.toPx(),RadioStrokeWidth.toPx()),
-                size = Size(
-                    (RadioRadius.toPx() - strokeWidth) * 2,
-                    (RadioRadius.toPx() - strokeWidth) * 2
-                ),
-                cornerRadius = CornerRadius(
-                    x =cornerRadius.toPx(),
-                    y = cornerRadius.toPx()
-                )
+        drawRoundRect(
+            color,
+            topLeft = Offset(RadioStrokeWidth.toPx(), RadioStrokeWidth.toPx()),
+            size = Size(
+                (RadioRadius.toPx() - strokeWidth) * 2,
+                (RadioRadius.toPx() - strokeWidth) * 2
+            ),
+            cornerRadius = CornerRadius(
+                x = cornerRadius.toPx() * 0.5f,
+                y = cornerRadius.toPx() * 0.5f
             )
+        )
     }
 }
 

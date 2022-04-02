@@ -44,6 +44,7 @@ fun ChooseDisplay(
                         selectedColor = Color.Green,
                         unselectedColor = Color.White
                     ),
+                    cornerRadius = 2.dp
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(text = display.toString(), color = Color.White, style = DinProStyle)

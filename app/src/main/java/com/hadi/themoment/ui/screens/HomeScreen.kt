@@ -75,15 +75,6 @@ fun HomeScreen() {
     ) {
 
         Column(modifier = Modifier.fillMaxSize()) {
-            Text(
-                text = "CASIO",
-                style = EurostileTextBold,
-                color = Color.White,
-                textAlign = TextAlign.End,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 4.dp, start = 16.dp, end = 16.dp)
-            )
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
