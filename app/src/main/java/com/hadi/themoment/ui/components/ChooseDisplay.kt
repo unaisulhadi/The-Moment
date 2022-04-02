@@ -40,7 +40,7 @@ fun ChooseDisplay(
                     onClick = {
                         onDisplaySelected(display)
                     },
-                    colors = RadioButtonDefaults.colors(
+                    colors = SquareRadioButtonDefaults.colors(
                         selectedColor = Color.Green,
                         unselectedColor = Color.White
                     ),

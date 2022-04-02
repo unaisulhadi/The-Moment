@@ -38,8 +38,8 @@ fun SquareRadioButton(
     cornerRadius: Dp = 0.dp
 ) {
     val dotRadius by animateDpAsState(
-        targetValue = if (selected) RadioButtonDotSize / 2 else 0.dp,
-        animationSpec = tween(durationMillis = RadioAnimationDuration)
+        targetValue = if (selected) SquareRadioButtonDotSize / 2 else 0.dp,
+        animationSpec = tween(durationMillis = SquareRadioAnimationDuration)
     )
     val radioColor by colors.radioColor(enabled, selected)
     val selectableModifier =
@@ -52,7 +52,7 @@ fun SquareRadioButton(
                 interactionSource = interactionSource,
                 indication = rememberRipple(
                     bounded = false,
-                    radius = RadioButtonRippleRadius
+                    radius = SquareRadioButtonRippleRadius
                 )
             )
         } else {
@@ -63,8 +63,8 @@ fun SquareRadioButton(
         modifier
             .then(selectableModifier)
             .wrapContentSize(Alignment.Center)
-            .padding(RadioButtonPadding)
-            .requiredSize(RadioButtonSize)
+            .padding(SquareRadioButtonPadding)
+            .requiredSize(SquareRadioButtonSize)
     ) {
         drawRadio(radioColor, dotRadius, cornerRadius)
     }
@@ -72,11 +72,11 @@ fun SquareRadioButton(
 
 
 private fun DrawScope.drawRadio(color: Color, dotRadius: Dp, cornerRadius: Dp) {
-    val strokeWidth = RadioStrokeWidth.toPx()
+    val strokeWidth = SquareRadioStrokeWidth.toPx()
     drawRect(
         color,
         topLeft = Offset(0f, 0f),
-        size = Size(RadioRadius.toPx() * 2, RadioRadius.toPx() * 2),
+        size = Size(SquareRadioRadius.toPx() * 2, SquareRadioRadius.toPx() * 2),
         style = Stroke(
             width = 2.dp.toPx(),
             pathEffect = PathEffect.cornerPathEffect(cornerRadius.toPx())
@@ -85,10 +85,10 @@ private fun DrawScope.drawRadio(color: Color, dotRadius: Dp, cornerRadius: Dp) {
     if (dotRadius > 0.dp) {
         drawRoundRect(
             color,
-            topLeft = Offset(RadioStrokeWidth.toPx(), RadioStrokeWidth.toPx()),
+            topLeft = Offset(SquareRadioStrokeWidth.toPx(), SquareRadioStrokeWidth.toPx()),
             size = Size(
-                (RadioRadius.toPx() - strokeWidth) * 2,
-                (RadioRadius.toPx() - strokeWidth) * 2
+                (SquareRadioRadius.toPx() - strokeWidth) * 2,
+                (SquareRadioRadius.toPx() - strokeWidth) * 2
             ),
             cornerRadius = CornerRadius(
                 x = cornerRadius.toPx() * 0.5f,
@@ -99,29 +99,15 @@ private fun DrawScope.drawRadio(color: Color, dotRadius: Dp, cornerRadius: Dp) {
 }
 
 @Stable
-interface RadioButtonColors {
-    /**
-     * Represents the main color used to draw the outer and inner circles, depending on whether
-     * the [RadioButton] is [enabled] / [selected].
-     *
-     * @param enabled whether the [RadioButton] is enabled
-     * @param selected whether the [RadioButton] is selected
-     */
+interface SquareRadioButtonColors {
+
     @Composable
     fun radioColor(enabled: Boolean, selected: Boolean): State<Color>
 }
 
 
-object RadioButtonDefaults {
-    /**
-     * Creates a [RadioButtonColors] that will animate between the provided colors according to
-     * the Material specification.
-     *
-     * @param selectedColor the color to use for the RadioButton when selected and enabled.
-     * @param unselectedColor the color to use for the RadioButton when unselected and enabled.
-     * @param disabledColor the color to use for the RadioButton when disabled.
-     * @return the resulting [Color] used for the RadioButton
-     */
+object SquareRadioButtonDefaults {
+
     @Composable
     fun colors(
         selectedColor: Color = MaterialTheme.colors.secondary,
@@ -133,7 +119,7 @@ object RadioButtonDefaults {
             unselectedColor,
             disabledColor
         ) {
-            DefaultRadioButtonColors(
+            DefaultSquareRadioButtonColors(
                 selectedColor,
                 unselectedColor,
                 disabledColor
@@ -144,7 +130,7 @@ object RadioButtonDefaults {
 
 
 @Stable
-private class DefaultRadioButtonColors(
+private class DefaultSquareRadioButtonColors(
     private val selectedColor: Color,
     private val unselectedColor: Color,
     private val disabledColor: Color
@@ -160,7 +146,7 @@ private class DefaultRadioButtonColors(
         // If not enabled 'snap' to the disabled state, as there should be no animations between
         // enabled / disabled.
         return if (enabled) {
-            animateColorAsState(target, tween(durationMillis = RadioAnimationDuration))
+            animateColorAsState(target, tween(durationMillis = SquareRadioAnimationDuration))
         } else {
             rememberUpdatedState(target)
         }
@@ -168,11 +154,11 @@ private class DefaultRadioButtonColors(
 }
 
 
-private const val RadioAnimationDuration = 100
+private const val SquareRadioAnimationDuration = 100
 
-private val RadioButtonRippleRadius = 24.dp
-private val RadioButtonPadding = 2.dp
-private val RadioButtonSize = 20.dp
-private val RadioRadius = RadioButtonSize / 2
-private val RadioButtonDotSize = 12.dp
-private val RadioStrokeWidth = 4.dp
+private val SquareRadioButtonRippleRadius = 24.dp
+private val SquareRadioButtonPadding = 2.dp
+private val SquareRadioButtonSize = 20.dp
+private val SquareRadioRadius = SquareRadioButtonSize / 2
+private val SquareRadioButtonDotSize = 12.dp
+private val SquareRadioStrokeWidth = 4.dp
