@@ -2,9 +2,6 @@ package com.hadi.themoment.ui.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.selection.selectable
-import androidx.compose.material.RadioButton
-import androidx.compose.material.RadioButtonDefaults
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -38,11 +35,7 @@ fun ChooseDisplay(
                 )
             ) {
 
-//                RetroRadioButton(selected = display ==selectedDisplay) {
-//                    onDisplaySelected(display)
-//                }
-
-                RadioButton(
+                SquareRadioButton(
                     selected = display == selectedDisplay,
                     onClick = {
                         onDisplaySelected(display)
