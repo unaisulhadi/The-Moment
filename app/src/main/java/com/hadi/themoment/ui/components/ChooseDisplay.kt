@@ -38,6 +38,10 @@ fun ChooseDisplay(
                 )
             ) {
 
+//                RetroRadioButton(selected = display ==selectedDisplay) {
+//                    onDisplaySelected(display)
+//                }
+
                 RadioButton(
                     selected = display == selectedDisplay,
                     onClick = {
